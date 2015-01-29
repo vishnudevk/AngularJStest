@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <script type="text/javascript" src="jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+                $.ajax({
+                    url: 'http://api.pricecheckindia.com/feed/product/mobile_phones.json?user=vishnude&key=OTNOKPMUNNWIPAVX',
+                    dataType: 'jsonp',
+                    success: function(dataWeGotViaJsonp){
+
+                    var fomratedHTML = "<table style='width:100%'>";
+                    for(i=0; i<dataWeGotViaJsonp.product.length; i++)
+                    {
+                      fomratedHTML += "<tr><td> ";
+                      fomratedHTML +=  dataWeGotViaJsonp.product[i].model ;
+                      fomratedHTML += " </td> </tr> ";
+                    }
+                      fomratedHTML += "</table>";
+                    $('#priceCheckFeed').html(fomratedHTML);
+                    }
+
+                });
+            })
+        </script>
+    </head>
+    <body>
+        <div id = 'priceCheckFeed'></div>
+    </body>
+</html>

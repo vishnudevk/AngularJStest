@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="angular.js"></script>
+  </head>
+
+  <body data-ng-app="" data-ng-controller="testController">
+
+   <p>
+     {{fullName() | lowercase}}
+   </p>
+
+   <p>
+     {{price | currency}}
+   </p>
+   <ul>
+     <li data-ng-repeat="x in jsonData">
+        {{ x.brand + ', ' + x.model }}
+     </li>
+   </ul>
+
+  </body>
+
+  <script>
+    function testController($scope,$http){
+      $scope.firstName = 'Vishnudev';
+      $scope.lastName = 'Kuruvanthodi';
+      $scope.price = 100.0;
+
+
+     $http.jsonp("http://api.pricecheckindia.com/feed/product/mobile_phones.json?user=vishnude&key=OTNOKPMUNNWIPAVX&callback=JSON_CALLBACK")
+    .success(
+      function(response) {$scope.jsonData = response.product;}
+    );
+
+
+
+      $scope.fullName = function(){
+        return $scope.firstName + " " + $scope.lastName ;
+      }
+
+    }
+
+  </script>
+</html>
