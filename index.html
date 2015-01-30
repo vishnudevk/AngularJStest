@@ -6,37 +6,56 @@
   </head>
   <body>
 
-    <nav>
-      <div class="nav-wrapper indigo darken-1">
-        <div class="container">
-          <div class="input-field col s11" style="margin-top: 0rem;">
-            <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-            <!--<a href="#" style="position:absolute;"  data-activates="nav-mobile"  class="button-collapse"><i class="mdi-navigation-menu"></i></a>-->
-            <input id="search" class="right-align" style="padding-right: 2rem;" type="text" required maxlength="50">
-            <label for="search" class="right-align" style="right: 0;"><i class="mdi-action-search"></i></label>
-          </div>
+  <nav>
+    <div class="nav-wrapper indigo darken-1">
+      <div class="container">
+        <div class="input-field col s11" style="margin-top: 0rem;">
+          <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+          <!--<a href="#" style="position:absolute;"  data-activates="nav-mobile"  class="button-collapse"><i class="mdi-navigation-menu"></i></a>-->
+          <input id="search" class="right-align" style="padding-right: 2rem;" type="text" required maxlength="50">
+          <label for="search" class="right-align" style="right: 0;"><i class="mdi-action-search"></i></label>
         </div>
-       </div>
-    </nav>
+      </div>
+     </div>
+  </nav>
 
-    <div class="container">
+  <div class="container">
 
-  <ul id="slide-out" class="side-nav full">
-          <li><a href="#">Navbar Link</a></li>
-        </ul>
+    <!--navigation-->
+    <ul id="slide-out" class="side-nav full">
+        <li><a href="#">Navbar Link</a></li>
+    </ul>
 
-      <div class="card-panel teal lighten-2">This is a card panel with a teal lighten-2 class</div>
+
+    <!--cards-->
+    <div class="card-panel white">
+
+          <div class="row valign-wrapper">
+            <div class="col s2">
+              <img src="imgs/nexus6.jpeg" alt="" class="responsive-img"> <!-- notice the "circle" class -->
+            </div>
+            <div class="col s10">
+              <span class="black-text">
+                This is a square image. Add the "circle" class to it to make it appear circular.
+              </span>
+            </div>
+          </div>
+
     </div>
 
-      <!--Import jQuery before materialize.js-->
-      <script type="text/javascript" src="js/jquery-2.1.1.js"></script>
-      <script type="text/javascript" src="js/materialize.js"></script>
-      <script>
-          (function($){
-            $(function(){
-              $('.button-collapse').sideNav();
-            }); // end of document ready
-          })(jQuery); // end of jQuery name space
-      </script>
+
+  </div>
+
+
+    <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="js/jquery-2.1.1.js"></script>
+  <script type="text/javascript" src="js/materialize.js"></script>
+  <script>
+      (function($){
+        $(function(){
+          $('.button-collapse').sideNav();
+        }); // end of document ready
+      })(jQuery); // end of jQuery name space
+  </script>
   </body>
 </html>
