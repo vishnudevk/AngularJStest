@@ -1,29 +1,36 @@
 /**Dispalying menu button even in small screensizes
 **/
-@media only screen and (min-width : 993px) {
-  .hide-on-large-only, nav a.button-collapse {
-    display: block !important; }
+@media only screen and (min-width: 993px) {
+    .hide-on-large-only,
+    nav a.button-collapse {
+        display: block !important;
+    }
 }
-
 
 /**same font in all screens
 **/
 html {
-  line-height: 1.5;
-  font-family: "Roboto", sans-serif;
-  font-weight: normal;
-  color: rgba(0, 0, 0, 0.87);
-  background:  #eceff1;
-     }
-  @media only screen and (min-width: 0) {
+    line-height: 1.5;
+    font-family: "Roboto", sans-serif;
+    font-weight: normal;
+    color: rgba(0, 0, 0, 0.87);
+    background: #eceff1;
+}
+@media only screen and (min-width: 0) {
     html {
-      font-size: 15px; } }
-  @media only screen and (min-width: 992px) {
+        font-size: 15px;
+    }
+}
+@media only screen and (min-width: 992px) {
     html {
-      font-size: 15px; } }
-  @media only screen and (min-width: 1200px) {
+        font-size: 15px;
+    }
+}
+@media only screen and (min-width: 1200px) {
     html {
-      font-size: 15px; } }
+        font-size: 15px;
+    }
+}
 
 /**showing important
 **/
@@ -31,6 +38,15 @@ a.button-collapse {
     position: absolute !important;
 }
 
+/**icons at top
+**/
 nav .nav-wrapper i {
-  font-size:2rem;
+    font-size: 2rem;
+}
+.container {
+    width: 100%;
+}
+
+.card-panel {
+    padding-top: 1px;
 }
