@@ -49,18 +49,50 @@
               );
         }
 
+       /**This method process the link from price check and get the actual link to the site
+        **/
+      $scope.processLinkClick = function(checkUrl){
+            // Using YQL and JSONP
+        $.ajax({
+            url: "http://query.yahooapis.com/v1/public/yql",
+            // the name of the callback parameter, as specified by the YQL service
+            jsonp: "callback",
+            // tell jQuery we're expecting JSONP
+            dataType: "jsonp",
+            // tell YQL what we want and that we want JSON
+            data: {
+                q: "select * from html where url=\""+checkUrl+"\""
+            },
+
+            // work with the response
+            success: function( response ) {
+                response = response.results[0];
+                var index =  response.indexOf("<a href=\"")
+                response = response.substring(index+9);
+                response = response.substring(0,response.indexOf("\""));
+
+                window.open(response);
+            }
+        });
+
+       }
+
+
+
     }
 
-       function search(){
-        document.activeElement.blur();
-        angular.element(document.getElementById('body')).scope().search();
-      }
+   function search(){
+    document.activeElement.blur();
+    angular.element(document.getElementById('body')).scope().search();
+   }
 
    $(document).keypress(function(e) {
     if(e.which == 13) {
         search();
     }
    });
+
+
     </script>
 
 </head>
@@ -105,7 +137,7 @@
                     <div class="col s12" style="text-align: center;">
                         <div class="row"><!--Brand -->
                             <h5>{{product.brand}}</h5>
-                            <div class="row valign-wrapper" onClick="processLinkClick({{product.stores[0].link}})">
+                            <div class="row valign-wrapper" ng-click="processLinkClick(product.stores[0].url);">
                               <i class="{{product.stores[0].website}}"  style="transform: translateY(0%);">
                               </i>
                             </div>
