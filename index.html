@@ -10,95 +10,25 @@
     <script type="text/javascript" src="js/jquery-2.1.1.js"></script>
     <script type="text/javascript" src="js/materialize.js"></script>
     <script type="text/javascript" src="js/angular.js"></script>
-    <script>
-        (function ($) {
-            $(function () {
-                $('.button-collapse').sideNav();
-            }); // end of document ready
-        })(jQuery); // end of jQuery name space
-
-        $('.collapsible').collapsible({
-                accordion : true
-            // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-        });
-        function testController($scope,$http){
-
-   /*  $http.jsonp("http://api.pricecheckindia.com/feed/product/mobile_phones/nokia%20107.json?user=vishnude&key=OTNOKPMUNNWIPAVX&callback=JSON_CALLBACK")
-    .success(
-      function(response) {$scope.jsonData = response.product;}
-        );
-          */
-
-        $scope.search = function(){
-          var str1 = "http://api.pricecheckindia.com/feed/product/mobile_phones/";
-          var str2 = ".json?user=vishnude&key=OTNOKPMUNNWIPAVX&callback=JSON_CALLBACK";
-          $http.jsonp(str1+encodeURIComponent(document.getElementById('search').value)+str2)
-            .success(
-              function(response) {
-                $scope.jsonData = response.product;
-                setTimeout(function(){
-                     //enable accordian
-                    $('.collapsible').collapsible({
-                            accordion : true
-                        // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-                    });
-
-                }, 1000);
-
-              }
-              );
-        }
-
-       /**This method process the link from price check and get the actual link to the site
-        **/
-      $scope.processLinkClick = function(checkUrl){
-            // Using YQL and JSONP
-        $.ajax({
-            url: "http://query.yahooapis.com/v1/public/yql",
-            // the name of the callback parameter, as specified by the YQL service
-            jsonp: "callback",
-            // tell jQuery we're expecting JSONP
-            dataType: "jsonp",
-            // tell YQL what we want and that we want JSON
-            data: {
-                q: "select * from html where url=\""+checkUrl+"\""
-            },
-
-            // work with the response
-            success: function( response ) {
-                response = response.results[0];
-                var index =  response.indexOf("<a href=\"")
-                response = response.substring(index+9);
-                response = response.substring(0,response.indexOf("\""));
-
-                window.open(response);
-            }
-        });
-
-       }
-
-
-
-    }
-
-   function search(){
-    document.activeElement.blur();
-    angular.element(document.getElementById('body')).scope().search();
-   }
-
-   $(document).keypress(function(e) {
-    if(e.which == 13) {
-        search();
-    }
-   });
-
-
-    </script>
+    <script type="text/javascript" src="js/scripts.js"></script>
 
 </head>
 
 <body>
-
+    <!--  Spinner-->
+    <div class="progress" style="display:none;">
+        <div class="indeterminate"></div>
+    </div>
+    
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <h4>Modal Header</h4>
+        <p>A bunch of text</p>
+        <div class="action-bar">
+          <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Agree</a>
+        </div>
+    </div>
+    
     <nav>
         <div class="nav-wrapper indigo darken-1">
             <div class="container">
@@ -146,6 +76,10 @@
                                from &#8377; {{product.stores[0].price}}
                               </h6>
                             </div>
+                            <div class="row waves-effect">
+                                <i class="mdi-notification-play-download Small" ng-click="processLinkClick(product.stores[0].url);">
+                                </i>
+                            </div>
                         </div>
                     </div>
 
@@ -155,17 +89,41 @@
                   <li>
                     <div class="collapsible-header"><i class="mdi-navigation-expand-more Large"></i>More Stores</div>
                     <div class="collapsible-body">
-                      <p>Lorem ipsum dolor sit amet.</p>
+                      <div>
+                          <table>
+                              <thead>
+                                  <tr>
+                                      <th data-field="id">Store</th>
+                                      <th data-field="name">Price</th>
+                                      <th data-field="price">Go</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                <tr ng-repeat="store in product.stores">  
+                                    <td>
+                                         <i class="{{store.website}}"  style="transform: translateY(0%);">
+                                         </i>
+                                    </td>
+                                    <td>
+                                         &#8377; {{store.price}}
+                                    </td>
+                                    <td class="waves-effect modal-trigger">
+                                         <i class="mdi-notification-play-download Small" ng-click="processLinkClick(store.url);"></i>
+                                    </td>
+                                     <!-- Modal Trigger -->
+                                    <a class="waves-effect waves-light btn modal-trigger" onclick="$('#modal1').openModal();" 
+                                       href="#modal1">Modal</a>
+                                </tr>
+                              </tbody>  
+                          </table>  
+                      </div>
                     </div>
                   </li>
                 </ul>
                 </div>
             </div>
         </div>
-
-
     </div>
-
     </body>
 
 </html>
