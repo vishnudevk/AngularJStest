@@ -172,3 +172,14 @@ nav .nav-wrapper i {
     background:  transparent url(../imgs/grabmore.jpg) ;
     background-repeat:no-repeat;
 }
+
+.zoomin{
+    display:     block;
+    width:       111px !important;
+    height:      30px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    background:  transparent url(../imgs/zoomin.jpg) ;
+    background-repeat:no-repeat;
+}
