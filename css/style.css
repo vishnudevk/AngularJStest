@@ -47,6 +47,128 @@ nav .nav-wrapper i {
     width: 100%;
 }
 
+/**Card related sytles
+**/
 .card-panel {
-    padding-top: 1px;
+    padding: 0px;
+}
+
+.card-head{
+    padding: .1rem 1rem .1rem 1rem;
+}
+
+.card-body{
+    padding: 1rem;
+}
+
+/**Images for various sources
+**/
+.amazon{
+    display:     block;
+    width:       111px !important;
+    height:      30px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    background:  transparent url(../imgs/amazon.jpg);
+    background-repeat:no-repeat;
+}
+
+.ebay{
+    display:     block;
+    width:       111px !important;
+    height:      30px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    background:  transparent url(../imgs/ebay.jpg);
+    background-repeat:no-repeat;
+}
+
+.flipkart{
+    display:     block;
+    width:       111px !important;
+    height:      30px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    background:  transparent url(../imgs/flipkart.jpg);
+    background-repeat:no-repeat;
+}
+
+.homeshop18{
+    display:     block;
+    width:       111px !important;
+    height:      30px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    background:  transparent url(../imgs/homeshop18.jpg);
+    background-repeat:no-repeat;
+}
+
+.infibeam{
+    display:     block;
+    width:       111px !important;
+    height:      30px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    background:  transparent url(../imgs/infibeam.jpg);
+    background-repeat:no-repeat;
+}
+
+.paytm{
+    display:     block;
+    width:       111px !important;
+    height:      30px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    background:  transparent url(../imgs/paytm.jpg);
+    background-repeat:no-repeat;
+}
+
+.saholic{
+    display:     block;
+    width:       111px !important;
+    height:      30px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    background:  transparent url(../imgs/saholic.jpg);
+    background-repeat:no-repeat;
+}
+
+.shopclues{
+    display:     block;
+    width:       111px !important;
+    height:      30px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    background:  transparent url(../imgs/shopclues.jpg);
+    background-repeat:no-repeat;
+}
+
+.snapdeal{
+    display:     block;
+    width:       111px !important;
+    height:      30px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    background:  transparent url(../imgs/snapdeal.jpg) ;
+    background-repeat:no-repeat;
+}
+
+.grabmore{
+    display:     block;
+    width:       111px !important;
+    height:      30px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    background:  transparent url(../imgs/grabmore.jpg) ;
+    background-repeat:no-repeat;
 }
