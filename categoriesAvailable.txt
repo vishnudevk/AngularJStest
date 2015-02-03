@@ -1,0 +1,60 @@
+mobile_phones - mdi-hardware-phone-android
+
+tablets - mdi-hardware-tablet-mac / mdi-hardware-tablet
+
+mobile_bluetooth_headsets - mdi-hardware-headset
+mobile_headphone_headsets
+
+point_shoots - mdi-image-camera-alt
+camcorders
+dslrs
+
+
+desktops - mdi-hardware-desktop-mac
+
+laptops	- mdi-hardware-laptop-mac
+
+monitors - mdi-hardware-desktop-windows
+
+lcd_tv - mdi-hardware-tv
+led_tv
+plasma_tv
+crt_tv
+
+printers_single - mdi-action-print
+printers_multi
+scanners
+projectors
+
+speakers - mdi-hardware-speaker
+music_systems
+home_theaters
+video_players
+
+ipods - mdi-image-audiotrack
+mp3_players
+mp4_players
+
+pen_drives mdi-action-dns
+external_hard_disks
+mobile_memory
+
+gaming_consoles - mdi-hardware-gamepad
+
+mobile_batteries -mdi-action-settings-input-hdmi
+mobile_chargers
+mobile_memory
+
+data_cards - mdi-hardware-memory
+routers
+switches
+processors
+graphic_cards
+rams
+motherboards
+tv_tuners
+mouse
+keyboards
+webcams
+laptop_batteries
+laptop_adapters

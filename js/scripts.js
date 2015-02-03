@@ -4,15 +4,19 @@
             }); // end of document ready
         })(jQuery); // end of jQuery name space
 
-        $('.collapsible').collapsible({
-                accordion : true
-            // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-        });
+$('.collapsible').collapsible({
+        accordion : true
+    // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+});
 
-        $(document).ready(function(){
-            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-            $('.modal-trigger').leanModal();
-          });
+$(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+  });
+
+
+        /*This is the controller used in search page
+        */
         function testController($scope,$http){
 
    /*  $http.jsonp("http://api.pricecheckindia.com/feed/product/mobile_phones/nokia%20107.json?user=vishnude&key=OTNOKPMUNNWIPAVX&callback=JSON_CALLBACK")
@@ -94,7 +98,25 @@
           window.open(url);
        }
 
+       //filter will give amazon and flipkart rows
+       $scope.goodStoreFilter = function (item) {
+          return item.website === 'flipkart' || item.website === 'amazon';
+      };
+
     }
+
+    /**
+     * This is the controller used in welcome page
+     */
+     function welcomeController($scope,$http){
+
+
+
+
+     }
+
+
+
 
    function search(){
     document.activeElement.blur();
