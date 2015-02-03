@@ -204,9 +204,28 @@ nav .nav-wrapper i {
     width:100%;
     z-index:100;
     margin: 0;
-    height: 0.40rem;
+    height: 0.35rem;
 }
 
 .progress .indeterminate{
     background-color: #304ffe;
+}
+
+/*No record found popup style*/
+#modal.modal {
+  background-clip: padding-box;
+    background-color: #eee;
+    border-radius: 2px;
+    display: none;
+    left: 0;
+    margin: auto;
+    max-height: 70%;
+    overflow-y: auto;
+    padding: 24px;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    transform: translate(0px);
+    width: 20rem;
+    z-index: 1000;
 }

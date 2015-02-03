@@ -19,16 +19,16 @@
     <div class="progress" style="display:none;">
         <div class="indeterminate"></div>
     </div>
-    
-    <!-- Modal Structure -->
-    <div id="modal1" class="modal">
-        <h4>Modal Header</h4>
-        <p>A bunch of text</p>
+
+     <!-- Modal Structure No Record found-->
+    <div id="modal" class="modal">
+        <h4>No record found</h4>
+        <i class="mdi-alert-error large" style="color:#283593"></i>
         <div class="action-bar">
-          <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Agree</a>
+          <a href="#" class="waves-effect waves-purple btn-flat modal-action modal-close">Close</a>
         </div>
     </div>
-    
+
     <nav>
         <div class="nav-wrapper indigo darken-1">
             <div class="container">
@@ -37,7 +37,7 @@
                         <i class="mdi-navigation-menu" style="font-size: 2rem;"></i>
                     </a>
                     <input id="search" class="right-align" style="padding-right: 2rem;" type="text" required maxlength="50">
-                    <label for="search" class="right-align" style="right: 0;" onclick="search();"><i class="mdi-action-search"></i>
+                    <label for="search" class="right-align" style="right: 0;"><i class="mdi-action-search"  onclick="search();"></i>
                     </label>
                 </div>
             </div>
@@ -52,12 +52,24 @@
             </li>
         </ul>
 
+         <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+            <h4>{{product.brand + " " +product.model}}</h4>
+            <p>Details about the product will come here
+            <input type="text" ng-model="product.model"><br>
+            </p>
+            <div class="action-bar">
+              <a href="#" class="waves-effect waves-purple btn-flat modal-action modal-close" ng-click="openWindow(store.url);">Go</a>
+              <a href="#" class="waves-effect waves-purple btn-flat modal-action modal-close">Close</a>
+            </div>
+        </div>
+
 
         <!--cards-->
         <div class="card-panel white" data-ng-repeat="product in jsonData">
             <div ng-if="product.stores.length > 0">
                 <div class="card-head indigo white-text"><!--Model -->
-                    <h5> {{product.model}} </h5>
+                    <h5>{{product.model}} </h5>
                 </div>
                 <div class="row valign-wrapper card-body">
                     <div style="padding-left:1rem;width:50%;text-align: center;">
@@ -67,7 +79,7 @@
                     <div class="col s12" style="text-align: center;">
                         <div class="row"><!--Brand -->
                             <h5>{{product.brand}}</h5>
-                            <div class="row valign-wrapper" ng-click="processLinkClick(product.stores[0].url);">
+                            <div class="row valign-wrapper" ng-click="openModelWithData(product,product.stores[0])">
                               <i class="{{product.stores[0].website}}"  style="transform: translateY(0%);">
                               </i>
                             </div>
@@ -77,7 +89,7 @@
                               </h6>
                             </div>
                             <div class="row waves-effect">
-                                <i class="mdi-notification-play-download Small" ng-click="processLinkClick(product.stores[0].url);">
+                                <i class="mdi-action-exit-to-app Small" ng-click="openModelWithData(product,product.stores[0]);">
                                 </i>
                             </div>
                         </div>
@@ -99,7 +111,7 @@
                                   </tr>
                               </thead>
                               <tbody>
-                                <tr ng-repeat="store in product.stores">  
+                                <tr ng-repeat="store in product.stores">
                                     <td>
                                          <i class="{{store.website}}"  style="transform: translateY(0%);">
                                          </i>
@@ -107,15 +119,12 @@
                                     <td>
                                          &#8377; {{store.price}}
                                     </td>
-                                    <td class="waves-effect modal-trigger">
-                                         <i class="mdi-notification-play-download Small" ng-click="processLinkClick(store.url);"></i>
+                                    <td class="waves-effect modal-trigger" ng-click="openModelWithData(product,store);">
+                                         <i class="mdi-action-exit-to-app Small"></i>
                                     </td>
-                                     <!-- Modal Trigger -->
-                                    <a class="waves-effect waves-light btn modal-trigger" onclick="$('#modal1').openModal();" 
-                                       href="#modal1">Modal</a>
                                 </tr>
-                              </tbody>  
-                          </table>  
+                              </tbody>
+                          </table>
                       </div>
                     </div>
                   </li>
