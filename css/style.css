@@ -212,7 +212,7 @@ nav .nav-wrapper i {
 }
 
 /*No record found popup style*/
-#modal.modal {
+.modal {
   background-clip: padding-box;
     background-color: #eee;
     border-radius: 2px;
@@ -228,4 +228,13 @@ nav .nav-wrapper i {
     transform: translate(0px);
     width: 20rem;
     z-index: 1000;
+}
+
+/*line hight of right side menu*/
+ul.side-nav.full li, ul.side-nav.fixed li {
+    line-height: 2.5em;
+}
+
+ul.side-nav.full{
+  margin-top: -1rem;
 }

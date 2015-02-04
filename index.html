@@ -47,19 +47,35 @@
     <div id="body" class="container" data-ng-app="" data-ng-controller="testController">
 
         <!--navigation-->
-        <ul id="slide-out" class="side-nav full">
-            <li><a href="#">Navbar Link</a>
-            </li>
+        <ul id="slide-out" class="side-nav full" style="overflow-y:scroll">
+             <ul class="collection">
+              <li class="collection-item"><h5>Categories</h5></li>
+              <li class="collection-item"><div>Mobile Phones<a href="#!" class="secondary-content" style="float:left"><i class="mdi-hardware-phone-android small" style="color:#3f51b5"></i></a></div></li>
+              <li class="collection-item"><div>Tablets<a href="#!" class="secondary-content" style="float:left"><i class="mdi-hardware-tablet-mac small" style="color:#3f51b5"></i></a></div></li>
+              <li class="collection-item"><div>Head phones<a href="#!" class="secondary-content" style="float:left"><i class="mdi-hardware-headset small" style="color:#3f51b5"></i></a></div></li>
+              <li class="collection-item"><div>Cameras & DSLRs<a href="#!" class="secondary-content" style="float:left"><i class="mdi-image-camera-alt small" style="color:#3f51b5"></i></a></div></li>
+              <li class="collection-item"><div>Laptops<a href="#!" class="secondary-content" style="float:left"><i class="mdi-hardware-laptop-mac small" style="color:#3f51b5"></i></a></div></li>
+              <li class="collection-item"><div>Desktops<a href="#!" class="secondary-content" style="float:left"><i class="mdi-hardware-desktop-mac small" style="color:#3f51b5"></i></a></div></li>
+              <li class="collection-item"><div>Monitors<a href="#!" class="secondary-content" style="float:left"><i class="mdi-hardware-desktop-windows small" style="color:#3f51b5"></i></a></div></li>
+              <li class="collection-item"><div>TVs<a href="#!" class="secondary-content" style="float:left"><i class="mdi-hardware-tv small" style="color:#3f51b5"></i></a></div></li>
+              <li class="collection-item"><div>Printers<a href="#!" class="secondary-content" style="float:left"><i class="mdi-action-print small" style="color:#3f51b5"></i></a></div></li>
+              <li class="collection-item"><div>Speakers<a href="#!" class="secondary-content" style="float:left"><i class="mdi-hardware-speaker small" style="color:#3f51b5"></i></a></div></li>
+              <li class="collection-item"><div>Mp3 Players<a href="#!" class="secondary-content" style="float:left"><i class="mdi-image-audiotrack small" style="color:#3f51b5"></i></a></div></li>
+              <li class="collection-item"><div>Memory Cards<a href="#!" class="secondary-content" style="float:left"><i class="mdi-action-dns small" style="color:#3f51b5"></i></a></div></li>
+              <li class="collection-item"><div>Gaming<a href="#!" class="secondary-content" style="float:left"><i class="mdi-hardware-gamepad small" style="color:#3f51b5"></i></a></div></li>
+              <li class="collection-item"><div>Mobile Accessories<a href="#!" class="secondary-content" style="float:left"><i class="mdi-action-settings-input-hdmi small" style="color:#3f51b5"></i></a></div></li>
+              <li class="collection-item"><div>Laptop Accessories<a href="#!" class="secondary-content" style="float:left"><i class="mdi-hardware-memory small" style="color:#3f51b5"></i></a></div></li>
+            </ul>
         </ul>
 
          <!-- Modal Structure -->
-        <div id="modal1" class="modal">
-            <h4>{{product.brand + " " +product.model}}</h4>
-            <p>Details about the product will come here
-            <input type="text" ng-model="product.model"><br>
+        <div id="modal1" class="modal" style="background-color: #fff;">
+            <h4>{{product.model}}</h4>
+            <p>Opening
+              <i class="{{store.website}}"  style="transform: translateX(60%);">
+              </i>
             </p>
             <div class="action-bar">
-              <a href="#" class="waves-effect waves-purple btn-flat modal-action modal-close" ng-click="openWindow(store.url);">Go</a>
               <a href="#" class="waves-effect waves-purple btn-flat modal-action modal-close">Close</a>
             </div>
         </div>
@@ -76,7 +92,7 @@
                         <!--ng-switch="(product.stores | filter: goodStoreFilter | limitTo:1).length"-->
                         <!--show icon from flipkart or amazon - ebay has crappy icons-->
                         <!--<img ng-repeat="store in (product.stores | filter: goodStoreFilter(product) | limitTo:1)" src="{{store.image}}" alt="" class="responsive-img">-->
-                        <img src="{{product.stores[0].image}}" alt="" class="responsive-img">
+                        <img ng-src="{{product.stores[0].image}}" alt="" class="responsive-img">
                     </div>
                     <div class="col s12" style="text-align: center;">
                         <div class="row"><!--Brand -->

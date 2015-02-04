@@ -12,6 +12,10 @@ $('.collapsible').collapsible({
 $(document).ready(function(){
     // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
     $('.modal-trigger').leanModal();
+    // Show sideNav
+    $('.button-collapse').sideNav('show');
+     // show msg on staring
+    toast('Select a category to search', 2500); // 2500 is the duration of the toast
   });
 
 
@@ -74,14 +78,21 @@ $(document).ready(function(){
               // work with the response
               success: function( response ) {
                   response = response.results[0];
-                  var index =  response.indexOf("<a href=\"")
-                  response = response.substring(index+9);
-                  response = response.substring(0,response.indexOf("\""));
+                  if(typeof response != 'undefined'){
+                    var index =  response.indexOf("<a href=\"")
+                    response = response.substring(index+9);
+                    response = response.substring(0,response.indexOf("\""));
 
-                  //return response;
-                  $scope.store.url = response;
+                    //return response;
+                    $scope.store.url = response;
+                  }
+                  $('#modal1').closeModal();
+                  window.open($scope.store.url);
               }
           });
+        }else{
+           $('#modal1').closeModal();
+           window.open($scope.store.url);
         }
        }
 
