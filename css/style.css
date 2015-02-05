@@ -238,3 +238,13 @@ ul.side-nav.full li, ul.side-nav.fixed li {
 ul.side-nav.full{
   margin-top: -1rem;
 }
+
+/*selection of right nav bar*/
+
+.left-nav-item:hover{
+  background-color: #f3e5f5 !important;
+}
+
+.selected , .selected:hover{
+  background-color: #e1bee7 !important;
+}

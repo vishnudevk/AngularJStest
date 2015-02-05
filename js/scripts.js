@@ -16,6 +16,18 @@ $(document).ready(function(){
     $('.button-collapse').sideNav('show');
      // show msg on staring
     toast('Select a category to search', 2500); // 2500 is the duration of the toast
+
+    //method getting called on the side nav click
+    $(".left-nav-item").click(function(){
+      $(".left-nav-item").removeClass('selected');
+      this.classList.add('selected');
+
+      setTimeout(function(){
+        $('.button-collapse').sideNav('hide');
+        $('#search').focus();
+        $('#search').select();
+        },500);
+      });
   });
 
 
@@ -31,6 +43,7 @@ $(document).ready(function(){
         //this it the selected store and will be used as the modal value
         $scope.product;
         $scope.store;
+        $scope.category;
 
         $scope.search = function(){
           if(document.getElementById('search').value!=""){
@@ -116,16 +129,6 @@ $(document).ready(function(){
 
     }
 
-    /**
-     * This is the controller used in welcome page
-     */
-     function welcomeController($scope,$http){
-
-
-
-
-     }
-
 
 
 
@@ -149,3 +152,65 @@ $(document).ready(function(){
         $(".progress").hide();
     }
        hideLoader();
+
+
+
+
+    var categoryjson = {
+  'categories': [
+    {
+      'key':1,
+      'options':['mobile_phones']
+    },
+    {
+      'key':2,
+      'options':['tablets']
+    },
+    {
+      'key':3,
+      'options':['mobile_bluetooth_headsets','mobile_headphone_headsets']
+    },
+    {
+      'key':4,
+      'options':['point_shoots','camcorders','dslrs']
+    },
+    {
+      'key':5,
+      'options':['desktops']
+    },
+    {
+      'key':6,
+      'options':['laptops']
+    },
+    {
+      'key':7,
+      'options':['monitors']
+    },
+    {
+      'key':8,
+      'options':['lcd_tv','led_tv','plasma_tv','crt_tv']
+    },
+    {
+      'key':9,
+      'options':['printers_single','printers_multi','scanners','projectors']
+    },
+    {
+      'key':10,
+      'options':['speakers','music_systems','home_theaters','video_players']
+    },
+     {
+      'key':11,
+      'options':['ipods','mp3_players','mp4_players']
+    },
+    {
+      'key':12,
+      'options':['pen_drives','external_hard_disks','mobile_memory']
+    },
+    {
+      'key':13,
+      'options':['data_cards','routers','switches','processors','graphic_cards','rams','motherboards','tv_tuners','mouse','keyboards','webcams','laptop_batteries','laptop_adapters']
+    }
+  ]
+}
+
+
