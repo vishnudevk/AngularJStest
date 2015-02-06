@@ -45,32 +45,61 @@ $(document).ready(function(){
         $scope.store;
         $scope.category;
 
+        //below 2 variables are used to manipulate the response to wait and get responses from all the categories
+        $scope.index;//index of category
+        $scope.length;//size of categories
+
         $scope.search = function(){
           if(document.getElementById('search').value!=""){
             showLoader();
-            var str1 = "http://api.pricecheckindia.com/feed/product/mobile_phones/";
-            var str2 = ".json?user=vishnude&key=OTNOKPMUNNWIPAVX&callback=JSON_CALLBACK";
-            $http.jsonp(str1+encodeURIComponent(document.getElementById('search').value)+str2)
-              .success(
-                function(response) {
-                  $scope.jsonData = response.product;
-                  if($scope.jsonData.length>0){
-                    setTimeout(function(){
-                         //enable accordian
-                        $('.collapsible').collapsible({
-                                accordion : true
-                            // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-                        });
-
-                    }, 1000);
-                  }else{
-                    $('#modal').openModal();
-                  }
-                  hideLoader();
-                }
-                );
+            var options = categoryjson.categories[$(".selected").get(0).id -1].options;
+            var searchKey = document.getElementById('search').value;
+            $scope.jsonData = null;
+            $scope.length = options.length;
+            $scope.index = 0;
+            for (var i=0; i<$scope.length; ++i) {
+              $scope.singleSearch(options[i],searchKey);
+            }
           }
         }
+
+
+      $scope.singleSearch = function(category,searchKey,index,length){
+         var str1 = "http://api.pricecheckindia.com/feed/product/";
+            var str2 = ".json?user=vishnude&key=OTNOKPMUNNWIPAVX&callback=JSON_CALLBACK";
+            $http.jsonp(str1+encodeURIComponent(category+"/"+searchKey)+str2)
+              .success(
+                function(response) {
+                  if($scope.jsonData===null){
+                    $scope.jsonData = response.product;
+                  }else{
+                    $scope.jsonData = $scope.jsonData.concat(response.product);
+                  }
+                  $scope.index = $scope.index+1;
+                  if($scope.index>= $scope.length){
+                     $scope.manageResults();
+                  }
+                }
+                );
+      }
+
+
+      $scope.manageResults= function(){
+         if($scope.jsonData!==null && $scope.jsonData.length>0){
+                setTimeout(function(){
+                     //enable accordian
+                    $('.collapsible').collapsible({
+                            accordion : true
+                        // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+                    });
+
+                }, 1000);
+              }else{
+                $('#modal').openModal();
+              }
+              hideLoader();
+      }
+
 
        /**This method process the link from price check and get the actual link to the site
         **/
@@ -176,11 +205,11 @@ $(document).ready(function(){
     },
     {
       'key':5,
-      'options':['desktops']
+      'options':['laptops']
     },
     {
       'key':6,
-      'options':['laptops']
+      'options':['desktops']
     },
     {
       'key':7,
@@ -208,6 +237,14 @@ $(document).ready(function(){
     },
     {
       'key':13,
+      'options':['gaming_consoles']
+    },
+    {
+      'key':14,
+      'options':['mobile_batteries','mobile_chargers','mobile_memory']
+    },
+    {
+      'key':15,
       'options':['data_cards','routers','switches','processors','graphic_cards','rams','motherboards','tv_tuners','mouse','keyboards','webcams','laptop_batteries','laptop_adapters']
     }
   ]
