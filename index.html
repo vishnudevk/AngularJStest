@@ -29,13 +29,22 @@
         </div>
     </div>
 
-    <nav>
+    <nav id="header-wrap">
         <div class="nav-wrapper indigo darken-1">
             <div class="container">
-                <div class="input-field col s11" style="margin-top: 0rem;">
-                    <a href="#" data-activates="slide-out" class="button-collapse">
-                        <i class="mdi-navigation-menu" style="font-size: 2rem;"></i>
-                    </a>
+                <div class="col s3" style="float:left;position:absolute;">
+                  <ul>
+                    <li><a href="#" data-activates="slide-out" class="button-collapse waves-effect waves-light">
+                          <i class="mdi-navigation-menu" style="font-size: 2rem;"></i>
+                        </a>
+                    </li>
+                    <li><a href="#" class="waves-effect waves-light tooltipped" data-position="right" data-delay="50" data-tooltip="Advanced search" onclick="$('#advanceSearchModel').openModal();">
+                        <i class="mdi-action-receipt" style="font-size: 2rem;"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="input-field col s9" style="margin-top: 0rem;width: 70%;float: right;">
                     <input id="search" class="right-align" style="padding-right: 2rem;" type="text" required maxlength="50">
                     <label for="search" class="right-align" style="right: 0;"><i class="mdi-action-search"  onclick="search();"></i>
                     </label>
@@ -45,6 +54,17 @@
     </nav>
 
     <div id="body" class="container" data-ng-app="" data-ng-controller="testController">
+
+
+         <!-- Modal Structure -->
+          <div id="advanceSearchModel" class="modal">
+            <h5>Advanced Search</h5>
+            <p>A bunch of text</p>
+            <div class="action-bar">
+              <a href="#" class="waves-effect waves-purple btn-flat modal-action modal-close">Search</a>
+              <a href="#" class="waves-effect waves-purple btn-flat modal-action modal-close">Cancel</a>
+            </div>
+          </div>
 
         <!--navigation-->
         <ul id="slide-out" class="side-nav full" style="overflow-y:scroll">
@@ -82,7 +102,8 @@
 
 
         <!--cards-->
-        <div class="card-panel white" data-ng-repeat="product in jsonData">
+        <div style="padding-top: 60px;">
+          <div class="card-panel white" data-ng-repeat="product in jsonData">
             <div ng-if="product.stores.length > 0">
                 <div class="card-head indigo white-text"><!--Model -->
                     <h5>{{product.model}} </h5>
@@ -149,6 +170,7 @@
                 </ul>
                 </div>
             </div>
+          </div>
         </div>
     </div>
     </body>

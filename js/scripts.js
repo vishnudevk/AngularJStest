@@ -180,7 +180,28 @@ $(document).ready(function(){
     function hideLoader(){
         $(".progress").hide();
     }
-       hideLoader();
+      hideLoader();
+
+
+
+
+//used to hide/show the top menu as you scrol
+var previousScroll = 0,
+    headerOrgOffset = $('.nav-wrapper').height();
+
+$('#header-wrap').height($('.nav-wrapper').height());
+
+$(window).scroll(function () {
+    var currentScroll = $(this).scrollTop();
+    if (currentScroll > headerOrgOffset) {
+        if (currentScroll > previousScroll) {
+            $('#header-wrap').slideUp();
+        } else {
+            $('#header-wrap').slideDown();
+        }
+    }
+    previousScroll = currentScroll;
+});
 
 
 

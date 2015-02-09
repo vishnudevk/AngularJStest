@@ -34,9 +34,9 @@ html {
 
 /**showing important
 **/
-a.button-collapse {
+/*a.button-collapse {
     position: absolute !important;
-}
+}*/
 
 /**icons at top
 **/
@@ -212,7 +212,7 @@ nav .nav-wrapper i {
 }
 
 /*No record found popup style*/
-.modal {
+#modal1 {
   background-clip: padding-box;
     background-color: #eee;
     border-radius: 2px;
@@ -247,4 +247,40 @@ ul.side-nav.full{
 
 .selected , .selected:hover{
   background-color: #e1bee7 !important;
+}
+
+/*advanced search menu*/
+
+.advancedSearch {
+  position: relative;
+  max-height: 50%;
+	transition-property: all;
+	transition-duration: .5s;
+	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+.advancedSearch.hide{
+  max-height: 0px;
+}
+
+/*Keep the navigation with the scrol*/
+/*nav {
+    display: block;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}*/
+
+.nav-wrapper {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+
+#header-wrap {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 99;
 }
