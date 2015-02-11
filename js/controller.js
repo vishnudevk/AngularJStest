@@ -1,7 +1,9 @@
 
-        /*This is the controller used in search page
-        */
-        function testController($scope,$http){
+angular.module('ui.bootstrap.vish', ['ui.bootstrap']);
+/*This is the controller used in search page
+*/
+angular.module('ui.bootstrap.vish').controller('mainController', function ($scope, $http,$log) {
+        /*function testController($scope,$http){*/
 
    /*  $http.jsonp("http://api.pricecheckindia.com/feed/product/mobile_phones/nokia%20107.json?user=vishnude&key=OTNOKPMUNNWIPAVX&callback=JSON_CALLBACK")
     .success(
@@ -128,5 +130,26 @@
           return item.website === 'flipkart' || item.website === 'amazon';
       };
 
-    }
+
+
+
+
+
+
+      //pagination
+      $scope.totalItems = 64;
+      $scope.currentPage = 4;
+
+      $scope.setPage = function (pageNo) {
+        $scope.currentPage = pageNo;
+      };
+
+      $scope.pageChanged = function() {
+      };
+
+      $scope.maxSize = 5;
+      $scope.bigTotalItems = 175;
+      $scope.bigCurrentPage = 1;
+
+});
 

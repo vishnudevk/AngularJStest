@@ -1,0 +1,16 @@
+<!doctype html>
+<html ng-app="ui.bootstrap.vish">
+  <head>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+    <script src="js/ui-bootstrap-tpls-0.12.0.js"></script>
+    <script src="example.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+
+  <div ng-controller="PaginationDemoCtrl">
+      <h4>Default</h4>
+      <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"></pagination>
+  </div>
+  </body>
+</html>

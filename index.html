@@ -1,4 +1,4 @@
-<html>
+<html  ng-app="ui.bootstrap.vish">
 
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
@@ -13,6 +13,7 @@
     <script type="text/javascript" src="js/scripts.js"></script>
     <script type="text/javascript" src="js/controller.js"></script>
     <script type="text/javascript" src="js/categories.js"></script>
+    <script type="text/javascript" src="js/ui-bootstrap-tpls-0.12.0.js"></script>
 
 
   </head>
@@ -57,7 +58,7 @@
         </div>
     </nav>
 
-    <div id="body" class="container" data-ng-app="" data-ng-controller="testController">
+    <div id="body" class="container" data-ng-controller="mainController">
 
          <!-- Modal for filter and advanced search-->
           <div id="advanceSearchModel" class="modal">
@@ -175,6 +176,7 @@
                 </div>
             </div>
           </div>
+          <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" ng-hide="jsonData.length==null || jsonData.length <=10" ></pagination>
         </div>
     </div>
   </body>

@@ -52,7 +52,7 @@ $(document).ready(function(){
     function hideLoader(){
         $(".progress").hide();
     }
-      hideLoader();
+    hideLoader();//hide loader when the page is loading
 
 
 //used to hide/show the top menu as you scrol
