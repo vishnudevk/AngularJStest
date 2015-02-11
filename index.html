@@ -1,6 +1,6 @@
 <html>
 
-<head>
+  <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection" />
@@ -11,17 +11,20 @@
     <script type="text/javascript" src="js/materialize.js"></script>
     <script type="text/javascript" src="js/angular.js"></script>
     <script type="text/javascript" src="js/scripts.js"></script>
+    <script type="text/javascript" src="js/controller.js"></script>
+    <script type="text/javascript" src="js/categories.js"></script>
 
-</head>
 
-<body>
-    <!--  Spinner-->
+  </head>
+
+  <body>
+    <!--  Spinner to show the page is processing-->
     <div class="progress" style="display:none;">
         <div class="indeterminate"></div>
     </div>
 
      <!-- Modal Structure No Record found-->
-    <div id="modal" class="modal">
+    <div id="modal" class="compactModal">
         <h4>No record found</h4>
         <i class="mdi-alert-error large" style="color:#283593"></i>
         <div class="action-bar">
@@ -29,6 +32,7 @@
         </div>
     </div>
 
+    <!--Navigation at the top -->
     <nav id="header-wrap">
         <div class="nav-wrapper indigo darken-1">
             <div class="container">
@@ -55,18 +59,18 @@
 
     <div id="body" class="container" data-ng-app="" data-ng-controller="testController">
 
-
-         <!-- Modal Structure -->
+         <!-- Modal for filter and advanced search-->
           <div id="advanceSearchModel" class="modal">
             <h5>Advanced Search</h5>
             <p>A bunch of text</p>
             <div class="action-bar">
-              <a href="#" class="waves-effect waves-purple btn-flat modal-action modal-close">Search</a>
               <a href="#" class="waves-effect waves-purple btn-flat modal-action modal-close">Cancel</a>
+              <a href="#" class="waves-effect waves-purple btn-flat modal-action modal-close">Reset</a>
+              <a href="#" class="waves-effect waves-purple btn-flat modal-action modal-close">Search</a>
             </div>
           </div>
 
-        <!--navigation-->
+        <!--side navigation - list of categories available-->
         <ul id="slide-out" class="side-nav full" style="overflow-y:scroll">
              <ul class="collection">
               <li class="collection-item"><h5>Categories</h5></li>
@@ -88,8 +92,8 @@
             </ul>
         </ul>
 
-         <!-- Modal Structure -->
-        <div id="modal1" class="modal" style="background-color: #fff;">
+         <!-- Modal Structure to show opening the e-comm. site -->
+        <div id="modal1" class="compactModal" style="background-color: #fff;">
             <h4>{{product.model}}</h4>
             <p>Opening
               <i class="{{store.website}}"  style="transform: translateX(60%);">
@@ -101,7 +105,7 @@
         </div>
 
 
-        <!--cards-->
+        <!--cards - list of products-->
         <div style="padding-top: 60px;">
           <div class="card-panel white" data-ng-repeat="product in jsonData">
             <div ng-if="product.stores.length > 0">
@@ -173,6 +177,6 @@
           </div>
         </div>
     </div>
-    </body>
+  </body>
 
 </html>

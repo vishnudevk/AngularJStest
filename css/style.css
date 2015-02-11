@@ -212,8 +212,8 @@ nav .nav-wrapper i {
 }
 
 /*No record found popup style*/
-#modal1 {
-  background-clip: padding-box;
+.compactModal{
+    background-clip: padding-box;
     background-color: #eee;
     border-radius: 2px;
     display: none;

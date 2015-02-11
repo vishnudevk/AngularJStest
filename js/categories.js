@@ -1,0 +1,68 @@
+/*
+*This variable contains all the categories available for the application
+*/
+
+    var categoryjson = {
+  'categories': [
+    {
+      'key':1,
+      'options':['mobile_phones']
+    },
+    {
+      'key':2,
+      'options':['tablets']
+    },
+    {
+      'key':3,
+      'options':['mobile_bluetooth_headsets','mobile_headphone_headsets']
+    },
+    {
+      'key':4,
+      'options':['point_shoots','camcorders','dslrs']
+    },
+    {
+      'key':5,
+      'options':['laptops']
+    },
+    {
+      'key':6,
+      'options':['desktops']
+    },
+    {
+      'key':7,
+      'options':['monitors']
+    },
+    {
+      'key':8,
+      'options':['lcd_tv','led_tv','plasma_tv','crt_tv']
+    },
+    {
+      'key':9,
+      'options':['printers_single','printers_multi','scanners','projectors']
+    },
+    {
+      'key':10,
+      'options':['speakers','music_systems','home_theaters','video_players']
+    },
+     {
+      'key':11,
+      'options':['ipods','mp3_players','mp4_players']
+    },
+    {
+      'key':12,
+      'options':['pen_drives','external_hard_disks','mobile_memory']
+    },
+    {
+      'key':13,
+      'options':['gaming_consoles']
+    },
+    {
+      'key':14,
+      'options':['mobile_batteries','mobile_chargers','mobile_memory']
+    },
+    {
+      'key':15,
+      'options':['data_cards','routers','switches','processors','graphic_cards','rams','motherboards','tv_tuners','mouse','keyboards','webcams','laptop_batteries','laptop_adapters']
+    }
+  ]
+}
